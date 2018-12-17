@@ -30,7 +30,7 @@ public class Menu extends Actor
     {
         this("not initialized", "none", 24, Color.BLACK, Color.LIGHT_GRAY, Color.BLACK, Color.WHITE, null);
     }
-    
+
     /**
      * A constructor for objects of class Menu
      * 
@@ -91,12 +91,12 @@ public class Menu extends Actor
     {   
         int menuIndex;
         MouseInfo mi;
-        
+
         CreatureWorld world = (CreatureWorld)getWorld();
         int distance;
-        
+
         //TODO (27): Declare a local Creature variable called currentCreature
-        
+        Creature currentCreature;
 
         if( world.getTurnNumber() == 1 )
         {
@@ -108,9 +108,9 @@ public class Menu extends Actor
             {
                 distance = 195;
             }
-            
+
             //TODO (28): Set currentCreature to get the player one creature from CreatureWorld
-            
+            currentCreature = world.getPlayerOne();
         }
         else
         {
@@ -122,41 +122,40 @@ public class Menu extends Actor
             {
                 distance = 195;
             }   
-            
+
             //TODO (29): Set currentCreature to get the player two creature from CreatureWorld
-            
+            currentCreature = world.getPlayerTwo();
         }
-        
+
         //TODO (30): If getObjectsInRange(distance, Creature.class).get(0)'s playerOwnership is equal to the turn number in the world...
-        
+        if(getObjectsInRange(distance, Creature.class).get(0).getPlayerOwner() == world.getTurnNumber())
+        {
             //TODO (31): Place both mouseClicked if statements inside this if statement
-            
-        
-        
-        if(Greenfoot.mouseClicked(titleBar))
-        {
-            if(visible == false)
+
+            if(Greenfoot.mouseClicked(titleBar))
             {
-                getWorld().addObject(menuItems, getX(), getY() + (titleHeight + menuHeight) / 2);
-            } 
-            else 
-            {
-                getWorld().removeObject(menuItems);
+                if(visible == false)
+                {
+                    getWorld().addObject(menuItems, getX(), getY() + (titleHeight + menuHeight) / 2);
+                } 
+                else 
+                {
+                    getWorld().removeObject(menuItems);
+                }
+
+                visible = !visible;
             }
-            
-            visible = !visible;
-        }
 
-        if(Greenfoot.mouseClicked(menuItems))
-        {
-            mi = Greenfoot.getMouseInfo();
-            menuIndex = ((mi.getY() - menuItems.getY() + menuHeight / 2) - 1) / fontSize;
-            visible = !visible;
-            getWorld().removeObject(menuItems);
-            
-            //TODO (32): Change the second parameter to currentCreature
-            menuCommands.execute( menuIndex, getObjectsInRange(distance, Creature.class).get(0) );
-        }
+            if(Greenfoot.mouseClicked(menuItems))
+            {
+                mi = Greenfoot.getMouseInfo();
+                menuIndex = ((mi.getY() - menuItems.getY() + menuHeight / 2) - 1) / fontSize;
+                visible = !visible;
+                getWorld().removeObject(menuItems);
 
+                //TODO (32): Change the second parameter to currentCreature
+                menuCommands.execute( menuIndex, currentCreature );
+            }
+        }
     }   
 }

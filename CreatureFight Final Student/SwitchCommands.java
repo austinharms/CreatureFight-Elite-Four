@@ -19,7 +19,35 @@ public class SwitchCommands implements MenuCommands
      */
     public void execute(int idx, Creature c)
     {
-        //TODO (4): Call the switchCreature method of Creature using idx as the parameter
-        
+        //TODO (4): If c is an instance of Charmander ot c is an instance of Pikachu (use the instanceof operator)...
+        if(c instanceof Charmander || c instanceof Pikachu)
+        {
+            //TODO (4a): Call the switchCreature method of c using a parameter of idx+1
+            c.switchCreature(idx + 1);
+        }
+        else if(c instanceof Golem || c instanceof Lapras)
+        {
+            //TODO (4b): Otherwise, if c is an instance of Golem ot c is an instance of Lapras (use the instanceof operator)...
+
+            //TODO (4c): If idx is 1...
+            if(idx == 1)
+            {
+                //TODO (4d): Call the switchCreature method of c using a parameter of idx+1
+                c.switchCreature(idx + 1);
+            }
+            else
+            {
+                //TODO (4e): Otherwise...
+
+                //TODO (4f): Call the switchCreature method of c using a parameter of idx
+                c.switchCreature(idx);
+            }
+        }
+        //TODO (4g): Otherwise...
+        else
+        {
+            //TODO (4h): Call the switchCreature method of c using a parameter of idx
+            c.switchCreature(idx);
+        }
     }
 }

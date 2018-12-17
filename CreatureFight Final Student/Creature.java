@@ -67,20 +67,26 @@ public class Creature extends Actor
     }
 
     /**
-     * TODO (2): Declare a switchCreature method that will be accessed by other
-     *          classes, has no return type, and one parameter called idx
-     *          
-     *          Leave this method empty, it will be overriden by subclasses
+     * switchCreature uses the idx to select the right creatur to switch to
+     * 
+     * @param idx is the index of the creature option selected
+     * @return Nothing is returned
      */
+    public void switchCreature(int idx)
+    {
+        
+    }
     
-
     /**
-     * TODO (3): Declare a switchedIn method that will be accessed by other
-     *          classes, has no return type, and has no parameters
-     *          
-     *          Leave this method empty, it will be overriden by subclasses
+     * Method switchedIn dose the actions the creature should do when it is switched in
+     * 
+     * @param There are no parameters
+     * @return Nothing is returned
      */
-    
+    public void switchedIn()
+    {
+        
+    }
 
     /**
      * getHealthBar returns the health bar for this creature
