@@ -35,8 +35,9 @@ public class CreatureWorld extends World
     private String playerTwoName = "2";
 
     //TODO (80): Declare two Creature instance arrays, one for the collection of playerOneCreatures and one for the collection of playerTwoCreatures
-    private Creature[] playerOneCreatures = new Creature[3];
-    private Creature[] playerTwoCreatures = new Creature[3];
+    private Creature[] playerOneCreatures;// = {new Charmander(this), new Golem(this), new Ivysaur(this)};
+    private Creature[] playerTwoCreatures;// = {new Pikachu(this), new Lapras(this), new Pidgeot(this)};
+   
 
     /**
      * Default constructor for objects of class CreatureWorld that sets the valuse for the the player one and two
@@ -58,26 +59,31 @@ public class CreatureWorld extends World
          * TODO (81): Initialize the playerOneCreatures array to a new Creature array that stores a 
          *          new Charmander object, a new Golem object, and a new Ivysaur object
          */
+        
+        playerOneCreatures = new Creature[3];
         playerOneCreatures[0] = new Charmander(this);
         playerOneCreatures[1] = new Golem(this);
         playerOneCreatures[2] = new Ivysaur(this);
-
+        
+        //playerOneCreatures = {new Ivysaur(this), new Golem(this), new Charmander(this)};
+        
         /**
          * TODO (154): Initialize the playerTwoCreatures array to a new Creature array that stores a 
          *          new Pikachu object, a new Lapras object, and a new Pidgeot object
          */
-
+        
+        playerTwoCreatures = new Creature[3];
         playerTwoCreatures[0] = new Pikachu(this);
         playerTwoCreatures[1] = new Lapras(this);
         playerTwoCreatures[2] = new Pidgeot(this);
-
+        
         prepareCreatures();
 
         turnNumber = 0;
 
         playerOneMenusAdded = false;
         playerTwoMenusAdded = false;
-
+        
         Greenfoot.start();
     }
 
@@ -112,7 +118,12 @@ public class CreatureWorld extends World
             showText( "Your turn, " + playerTwoName, getWidth()/2, getHeight()/2 );
             showText( "", getWidth()/2, getHeight()/2 + 26 );
         }
-
+        
+        
+        
+        
+        
+        
         if( playerOneMenusAdded == false )
         {
             //TODO (95): If playerOneCreature equals (ignoring case) "Charmander"...
@@ -187,9 +198,9 @@ public class CreatureWorld extends World
 
             playerTwoMenusAdded = true;
         }
-
+   
         //TODO (176): Declare a for loop that runs while playerOneLose is true AND index is less than the length of the playerOneCreatures array
-        for(int i = 0; i < playerOneCreature.length() && playerOneLose == true; i++)
+        for(int i = 0; playerOneLose == true && i < 3; i++)
         {
             //TODO (177): If the player one creature at the current index of the array's current health is greater than 0...
             if(playerOneCreatures[i].getHealthBar().getCurrent() > 0)
@@ -204,7 +215,7 @@ public class CreatureWorld extends World
         //TODO (180): If the player two creature at the current index of the array's current health is greater than 0...
 
         //TODO (181): Set playerTwoLose to false
-        for(int j = 0; j < playerTwoCreature.length() && playerTwoLose == true; j++)
+        for(int j = 0; j < 3 && playerTwoLose == true; j++)
         {
             //TODO (177): If the player one creature at the current index of the array's current health is greater than 0...
             if(playerTwoCreatures[j].getHealthBar().getCurrent() > 0)
@@ -231,7 +242,9 @@ public class CreatureWorld extends World
             removeObjects(allObjects);
             showText(playerOneName + " wins!!", getWidth()/2, getHeight()/2);
             Greenfoot.stop();
-        }      
+        } 
+        
+        
     }
 
     /**

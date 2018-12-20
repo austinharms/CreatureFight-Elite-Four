@@ -128,7 +128,7 @@ public class Menu extends Actor
         }
 
         //TODO (30): If getObjectsInRange(distance, Creature.class).get(0)'s playerOwnership is equal to the turn number in the world...
-        if(getObjectsInRange(distance, Creature.class).get(0).getPlayerOwner() == world.getTurnNumber())
+        if(getObjectsInRange(distance, Creature.class).isEmpty() == false && getObjectsInRange(distance, Creature.class).get(0).getPlayerOwner() == world.getTurnNumber())
         {
             //TODO (31): Place both mouseClicked if statements inside this if statement
 
