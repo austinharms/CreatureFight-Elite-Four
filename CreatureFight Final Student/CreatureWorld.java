@@ -3,6 +3,27 @@
  * Techer Name: Mr Hardman
  * Class: ptec software development
  * Date: 12/10/2018
+ * 
+ * Knowledge & Understanding:    18/20
+ *    Percent Grade for
+ *    how well student 
+ *    followed standards:      90%
+ *
+ *    Missing comment block for changePlayerOne
+ *    Watch for indentation issues (Golem, Ivysaur)
+ *
+ * Problem-Solving:              18.5/20
+ *    Percent Grade for 
+ *    completion of 
+ *    assignment requirements: 92.5%
+ *
+ *    List of incorrect TODOs: 
+ *        TODO 155
+ *        TODO 176
+ *        TODO 179
+ *        Ivysaur's switchCreature method calls and related if statements are incorrect
+ *        Pidgeot's switchCreature method calls and related if statements are incorrect
+ * 
  */
 
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
@@ -84,7 +105,7 @@ public class CreatureWorld extends World
         playerOneMenusAdded = false;
         playerTwoMenusAdded = false;
         
-        Greenfoot.start();
+        //Greenfoot.start();
     }
 
     /**
@@ -198,9 +219,9 @@ public class CreatureWorld extends World
 
             playerTwoMenusAdded = true;
         }
-   
         //TODO (176): Declare a for loop that runs while playerOneLose is true AND index is less than the length of the playerOneCreatures array
-        for(int i = 0; playerOneLose == true && i < 3; i++)
+        //What if the length of the array changed?
+        for(int i = 0; playerOneLose == true && i < playerOneCreatures.length; i++)
         {
             //TODO (177): If the player one creature at the current index of the array's current health is greater than 0...
             if(playerOneCreatures[i].getHealthBar().getCurrent() > 0)
@@ -215,7 +236,7 @@ public class CreatureWorld extends World
         //TODO (180): If the player two creature at the current index of the array's current health is greater than 0...
 
         //TODO (181): Set playerTwoLose to false
-        for(int j = 0; j < 3 && playerTwoLose == true; j++)
+        for(int j = 0; j < playerTwoCreatures.length && playerTwoLose == true; j++)
         {
             //TODO (177): If the player one creature at the current index of the array's current health is greater than 0...
             if(playerTwoCreatures[j].getHealthBar().getCurrent() > 0)
@@ -286,7 +307,8 @@ public class CreatureWorld extends World
             }
         }
         //TODO (155): Declare a loop that will allow you to access every element of the playerTwoCreatures array
-        for(int j = 0; j < playerOneCreatures.length; j++)
+        //This should technically use playerTwoCreatures.length
+        for(int j = 0; j < playerTwoCreatures.length; j++)
         {
             //TODO (156): If the loop index is 0...
             if( j == 0)
@@ -425,18 +447,10 @@ public class CreatureWorld extends World
     }
 
     /**
-     * TODO (15): Declare a changePlayerOne method that will be 
-     *          accessed by other classes, does not return anything
-     *          and has a String parameter called creature
-     *          
-     * TODO (16): Set the playerOneCreature variable to creature
-     * 
-     * TODO (17): Remove player one's fight menu
-     * 
-     * TODO (18): Remove player one's switch menu
-     * 
-     * TODO (19): Set the playerOneMenusAdded variable to reflect that
-     *          there are no player one menus anymore
+     * Method changePlayerOne changes the player one creature with the string creature parameter
+     *
+     * @param creature A parameter use to set the new player one creature
+     * @return nothing is returned
      */
     public void changePlayerOne(String creature)
     {
