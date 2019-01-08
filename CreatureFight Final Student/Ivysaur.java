@@ -65,11 +65,11 @@ public class Ivysaur extends Creature
             Greenfoot.delay(30);
 
             //TODO (68): If the current health of the health bar of the new one creature at index 1 in player world is greater than 0...
-            if(playerWorld.getNewOneCreature(1).getHealthBar().getCurrent() > 0)
+            if(playerWorld.getNewOneCreature(0).getHealthBar().getCurrent() > 0)
             {
                 //Indentation issues
                 //TODO (69): Call the switchCreature method using a value of 1 as the parameter
-                switchCreature(1);
+                switchCreature(0);
                 //TODO (70): Set the turn number in player world to 1
                 playerWorld.setTurnNumber(1);
                 //TODO (71): Clear the text (using an empty String, "") at the location that it stated Charmander had fainted
@@ -81,7 +81,7 @@ public class Ivysaur extends Creature
             else
             {
                 //TODO (69): Call the switchCreature method using a value of 1 as the parameter
-                switchCreature(2);
+                switchCreature(1);
                 //TODO (70): Set the turn number in player world to 1
                 playerWorld.setTurnNumber(1);
                 //TODO (71): Clear the text (using an empty String, "") at the location that it stated Charmander had fainted

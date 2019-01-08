@@ -79,10 +79,10 @@ public class Pidgeot extends Creature
             //TODO (150): Clear the text (using an empty String, "") at the location that it stated Pikachu had fainted
 
             //TODO (151): Remove this object from the world
-            if(playerWorld.getNewTwoCreature(1).getHealthBar().getCurrent() > 0)
+            if(playerWorld.getNewTwoCreature(0).getHealthBar().getCurrent() > 0)
             {
                 //TODO (69): Call the switchCreature method using a value of 1 as the parameter
-                switchCreature(1);
+                switchCreature(0);
                 //TODO (70): Set the turn number in player world to 1
                 playerWorld.setTurnNumber(2);
                 //TODO (71): Clear the text (using an empty String, "") at the location that it stated Charmander had fainted
@@ -91,10 +91,10 @@ public class Pidgeot extends Creature
                 getWorld().removeObject(this);
             }
             //TODO (73): Otherwise, if the current health of the health bar of the new one creature at index 2 in player world is greater than 0...
-            else if(playerWorld.getNewTwoCreature(2).getHealthBar().getCurrent() > 0)
+            else if(playerWorld.getNewTwoCreature(1).getHealthBar().getCurrent() > 0)
             {
                 //TODO (69): Call the switchCreature method using a value of 1 as the parameter
-                switchCreature(2);
+                switchCreature(1);
                 //TODO (70): Set the turn number in player world to 1
                 playerWorld.setTurnNumber(2);
                 //TODO (71): Clear the text (using an empty String, "") at the location that it stated Charmander had fainted
